@@ -80,19 +80,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ========== Smooth anchor scroll ==========
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', (e) => {
-      const targetId = anchor.getAttribute('href');
-      if (targetId === '#') return;
-      const target = document.querySelector(targetId);
-      if (target) {
-        e.preventDefault();
-        const offset = navbar.offsetHeight + 220;
-        const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
-        window.scrollTo({ top, behavior: 'smooth' });
-      }
-    });
-  });
+  // ========== Smooth anchor scroll (Disabled to use CSS) ==========
+  // document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  //   anchor.addEventListener('click', (e) => {
+  //     const targetId = anchor.getAttribute('href');
+  //     if (targetId === '#') return;
+  //     const target = document.querySelector(targetId);
+  //     if (target) {
+  //       e.preventDefault();
+  //       const offset = navbar.offsetHeight + 220;
+  //       const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+  //       window.scrollTo({ top, behavior: 'smooth' });
+  //     }
+  //   });
+  // });
 
   // ========== Scroll fade-in animations ==========
   const fadeObserver = new IntersectionObserver(
