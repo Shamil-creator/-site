@@ -1441,8 +1441,10 @@ section {
   }
 
   .hero__stats {
-    flex-direction: column;
-    gap: 16px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
   }
 
   .about__stats {
@@ -1459,8 +1461,8 @@ section {
   }
 
   .process__timeline {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
 
   .process__connector {

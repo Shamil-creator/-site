@@ -173,22 +173,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const phoneInput = document.getElementById('phoneInput');
 
   if (phoneInput) {
-    function setCaretEnd(input) {
-      if (input.setSelectionRange) {
-        const len = input.value.length;
-        input.setSelectionRange(len, len);
-      }
-    }
-
-    phoneInput.addEventListener('focus', function () {
-      if (!this.value) {
-        this.value = '+7 (';
-        setCaretEnd(this);
-      }
-    });
-
-    phoneInput.addEventListener('input', function () {
-      let digits = this.value.replace(/\D/g, '');
+    function formatPhoneNumber(value) {
+      let digits = value.replace(/\D/g, '');
       if (digits.startsWith('7')) digits = digits.substring(1);
       digits = digits.substring(0, 10);
 
@@ -200,14 +186,70 @@ document.addEventListener('DOMContentLoaded', () => {
       if (digits.length >= 7) formatted += digits.substring(6, 8);
       if (digits.length >= 8) formatted += '-';
       if (digits.length >= 9) formatted += digits.substring(8, 10);
+      return formatted;
+    }
 
-      this.value = formatted;
+    function setCaretEnd(input) {
+      if (input.setSelectionRange) {
+        const len = input.value.length;
+        input.setSelectionRange(len, len);
+      }
+    }
+
+    phoneInput.addEventListener('focus', function () {
+      if (!this.value) {
+        this.value = '+7 (';
+      }
+      this.dataset.oldValue = this.value;
+      setCaretEnd(this);
+    });
+
+    phoneInput.addEventListener('input', function (e) {
+      let value = this.value;
+      let digits = value.replace(/\D/g, '');
+      if (digits.startsWith('7')) digits = digits.substring(1);
+
+      // Check for deletion on mobile (where separators might be deleted but digits remain)
+      const oldValue = this.dataset.oldValue || '';
+      const oldDigits = oldValue.replace(/\D/g, '').replace(/^7/, '');
+
+      const isDeletion = (e.inputType && e.inputType.includes('delete')) || (value.length < oldValue.length);
+
+      // If deletion detected but digit count is same or greater, it means a separator was removed.
+      // We manually remove the last digit to facilitate continuous backspacing.
+      if (isDeletion && digits.length === oldDigits.length && digits.length > 0) {
+        digits = digits.substring(0, digits.length - 1);
+      }
+
+      this.value = formatPhoneNumber('7' + digits);
+      this.dataset.oldValue = this.value;
+
       setCaretEnd(this);
     });
 
     phoneInput.addEventListener('keydown', function (e) {
-      if (this.selectionStart <= 3 && (e.key === 'Backspace' || e.key === 'Delete')) {
+      // Prevent deleting the prefix "+7 ("
+      if ((e.key === 'Backspace' || e.key === 'Delete') && this.value.length <= 4) {
         e.preventDefault();
+        return;
+      }
+
+      // Handle Backspace when hitting separators like ') ' or '-' (Desktop optimization)
+      if (e.key === 'Backspace') {
+        const cursor = this.selectionStart;
+        if (cursor === this.value.length) {
+          const charToDelete = this.value.slice(-1);
+          if (['-', ' '].includes(charToDelete)) {
+            e.preventDefault();
+            let digits = this.value.replace(/\D/g, '');
+            if (digits.startsWith('7')) digits = digits.substring(1);
+            if (digits.length > 0) {
+              digits = digits.substring(0, digits.length - 1);
+              this.value = formatPhoneNumber('7' + digits);
+              this.dataset.oldValue = this.value; // Sync state
+            }
+          }
+        }
       }
     });
   }
