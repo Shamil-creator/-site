@@ -33,14 +33,17 @@
             </a>
 
             <div class="navbar__links">
-                <a href="#services">Услуги</a>
-                <a href="#about">О нас</a>
-                <a href="#process">Процесс</a>
-                <a href="#faq">FAQ</a>
-                <a href="#contact">Контакты</a>
+                <a href="#services" data-i18n="nav.services">Услуги</a>
+                <a href="#about" data-i18n="nav.about">О нас</a>
+                <a href="#process" data-i18n="nav.process">Процесс</a>
+                <a href="#faq" data-i18n="nav.faq">FAQ</a>
+                <a href="#contact" data-i18n="nav.contacts">Контакты</a>
             </div>
 
-            <a href="#contact" class="btn-cta">Обсудить проект</a>
+            <div class="navbar__right">
+                <a href="#contact" class="btn-cta" data-i18n="nav.cta">Обсудить проект</a>
+                <button id="langToggle" class="lang-toggle">EN</button>
+            </div>
 
             <button class="navbar__burger" id="burger" aria-label="Меню">
                 <span></span>
@@ -52,12 +55,15 @@
 
     <!-- Mobile Menu -->
     <div class="navbar__mobile-menu" id="mobileMenu">
-        <a href="#services">Услуги</a>
-        <a href="#about">О нас</a>
-        <a href="#process">Процесс</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Контакты</a>
-        <a href="#contact" class="btn-cta">Обсудить проект</a>
+        <a href="#services" data-i18n="nav.services">Услуги</a>
+        <a href="#about" data-i18n="nav.about">О нас</a>
+        <a href="#process" data-i18n="nav.process">Процесс</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+        <a href="#contact" data-i18n="nav.contacts">Контакты</a>
+        <div style="display: flex; gap: 16px; align-items: center;">
+            <button id="mobileLangToggle" class="lang-toggle">EN</button>
+        </div>
+        <a href="#contact" class="btn-cta" data-i18n="nav.cta">Обсудить проект</a>
     </div>
 
     <!-- ==================== HERO ==================== -->
@@ -66,23 +72,25 @@
 
 
             <h1 class="hero__title fade-in fade-in-delay-1">
-                РАЗРАБАТЫВАЕМ <span class="accent">КОМПЛЕКСНЫЕ <br>ИНТЕЛЛЕКТУАЛЬНЫЕ</span> РЕШЕНИЯ <br>ДЛЯ БИЗНЕСА
+                <span data-i18n="hero.title.1">РАЗРАБАТЫВАЕМ</span> <span class="accent"
+                    data-i18n="hero.title.2">КОМПЛЕКСНЫЕ <br>ИНТЕЛЛЕКТУАЛЬНЫЕ</span> <span
+                    data-i18n="hero.title.3">РЕШЕНИЯ <br>ДЛЯ БИЗНЕСА</span>
             </h1>
 
-            <p class="hero__subtitle fade-in fade-in-delay-2">
+            <p class="hero__subtitle fade-in fade-in-delay-2" data-i18n="hero.subtitle">
                 От стратегии и дизайна до внедрения и масштабирования
             </p>
 
             <div class="hero__buttons fade-in fade-in-delay-3">
                 <a href="#contact" class="btn-primary">
-                    Обсудить проект
+                    <span data-i18n="hero.btn.discuss">Обсудить проект</span>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                         stroke-linecap="round" stroke-linejoin="round">
                         <line x1="5" y1="12" x2="19" y2="12" />
                         <polyline points="12 5 19 12 12 19" />
                     </svg>
                 </a>
-                <a href="#services-grid" class="btn-outline">
+                <a href="#services-grid" class="btn-outline" data-i18n="hero.btn.services">
                     Наши услуги
                 </a>
             </div>
@@ -90,17 +98,17 @@
             <div class="hero__stats fade-in fade-in-delay-4">
                 <div class="hero__stat">
                     <div class="hero__stat-value" data-count="50">0+</div>
-                    <div class="hero__stat-label">Проектов</div>
+                    <div class="hero__stat-label" data-i18n="hero.stat.projects">Проектов</div>
                 </div>
                 <div class="hero__stat-divider"></div>
                 <div class="hero__stat">
-                    <div class="hero__stat-value">С 2020</div>
-                    <div class="hero__stat-label">На рынке</div>
+                    <div class="hero__stat-value" data-i18n="hero.stat.since">С 2020</div>
+                    <div class="hero__stat-label" data-i18n="hero.stat.market">На рынке</div>
                 </div>
                 <div class="hero__stat-divider"></div>
                 <div class="hero__stat">
-                    <div class="hero__stat-value">Казань</div>
-                    <div class="hero__stat-label">Россия</div>
+                    <div class="hero__stat-value" data-i18n="hero.stat.city">Казань</div>
+                    <div class="hero__stat-label" data-i18n="hero.stat.country">Россия</div>
                 </div>
             </div>
         </div>
@@ -110,8 +118,9 @@
     <section class="services" id="services">
         <div class="container">
             <div class="section-heading fade-in">
-                <h2 class="section-heading__title">Услуги</h2>
-                <p class="section-heading__desc">Комплексные решения для автоматизации вашего бизнеса</p>
+                <h2 class="section-heading__title" data-i18n="services.title">Услуги</h2>
+                <p class="section-heading__desc" data-i18n="services.desc">Комплексные решения для автоматизации вашего
+                    бизнеса</p>
             </div>
 
             <div class="services__grid" id="services-grid">
@@ -125,16 +134,21 @@
                             <line x1="10" y1="14" x2="21" y2="3" />
                         </svg>
                     </div>
-                    <h3 class="service-card__title">Внешняя автоматизация</h3>
-                    <p class="service-card__desc">Цифровые решения для эффективного взаимодействия с клиентами.</p>
+                    <h3 class="service-card__title" data-i18n="service.external.title">Внешняя автоматизация</h3>
+                    <p class="service-card__desc" data-i18n="service.external.desc">Цифровые решения для эффективного
+                        взаимодействия с клиентами.</p>
                     <p class="service-card__subdesc"
-                        style="margin-bottom: 12px; font-weight: 600; color: var(--text-primary);">Мы реализуем:</p>
+                        style="margin-bottom: 12px; font-weight: 600; color: var(--text-primary);"
+                        data-i18n="service.external.subdesc">Мы реализуем:</p>
                     <ul class="service-card__checklist">
-                        <li>Telegram-ботов для продаж, поддержки и коммуникаций</li>
-                        <li>Автоматизированный приём и обработку заявок</li>
-                        <li>Интеграции с CRM, платёжными системами и сервисами записи</li>
-                        <li>Умные уведомления, автоворонки и сценарии взаимодействия</li>
-                        <li>AI-ассистентов для масштабирования клиентского сервиса</li>
+                        <li data-i18n="service.external.list.1">Telegram-ботов для продаж, поддержки и коммуникаций</li>
+                        <li data-i18n="service.external.list.2">Автоматизированный приём и обработку заявок</li>
+                        <li data-i18n="service.external.list.3">Интеграции с CRM, платёжными системами и сервисами
+                            записи</li>
+                        <li data-i18n="service.external.list.4">Умные уведомления, автоворонки и сценарии взаимодействия
+                        </li>
+                        <li data-i18n="service.external.list.5">AI-ассистентов для масштабирования клиентского сервиса
+                        </li>
                     </ul>
                 </div>
 
@@ -148,16 +162,20 @@
                                 d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
                         </svg>
                     </div>
-                    <h3 class="service-card__title">Внутренняя автоматизация</h3>
-                    <p class="service-card__desc">Интеллектуальная оптимизация внутренних процессов бизнеса.</p>
+                    <h3 class="service-card__title" data-i18n="service.internal.title">Внутренняя автоматизация</h3>
+                    <p class="service-card__desc" data-i18n="service.internal.desc">Интеллектуальная оптимизация
+                        внутренних процессов бизнеса.</p>
                     <p class="service-card__subdesc"
-                        style="margin-bottom: 12px; font-weight: 600; color: var(--text-primary);">Мы реализуем:</p>
+                        style="margin-bottom: 12px; font-weight: 600; color: var(--text-primary);"
+                        data-i18n="service.internal.subdesc">Мы реализуем:</p>
                     <ul class="service-card__checklist">
-                        <li>Автоматизацию операционных и управленческих процессов</li>
-                        <li>Внутренние системы и ботов для команд</li>
-                        <li>Интеграцию данных, аналитики и отчётности</li>
-                        <li>AI-решения для контроля, анализа и принятия решений</li>
-                        <li>Индивидуальные цифровые инструменты под задачи компании</li>
+                        <li data-i18n="service.internal.list.1">Автоматизацию операционных и управленческих процессов
+                        </li>
+                        <li data-i18n="service.internal.list.2">Внутренние системы и ботов для команд</li>
+                        <li data-i18n="service.internal.list.3">Интеграцию данных, аналитики и отчётности</li>
+                        <li data-i18n="service.internal.list.4">AI-решения для контроля, анализа и принятия решений</li>
+                        <li data-i18n="service.internal.list.5">Индивидуальные цифровые инструменты под задачи компании
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -168,12 +186,12 @@
     <section class="about" id="about">
         <div class="container">
             <div class="section-heading fade-in">
-                <h2 class="section-heading__title">О нас</h2>
+                <h2 class="section-heading__title" data-i18n="about.title">О нас</h2>
             </div>
 
             <div class="about__grid">
                 <div class="about__text fade-in">
-                    <p>
+                    <p data-i18n="about.text.1">
                         <span class="accent">АРИТ</span> — молодая IT-компания, которая экономит ваше время за счёт
                         автоматизации рутинных процессов
                         Мы занимаемся индивидуальной <span class="accent">автоматизацией бизнес-систем</span> под
@@ -181,13 +199,13 @@
                         вашего бизнеса, разрабатывая <span class="accent">цифровые решения</span>, которые
                         <span class="accent">упрощают операционную работу</span>.
                     </p>
-                    <p>
+                    <p data-i18n="about.text.2">
                         Не боимся нестандартных задач и вызовов.
                         Там, где другие говорят <span class="accent">«нельзя»</span>, <span class="accent">мы
                             находим</span> инженерное или
                         творческое решение.
                     </p>
-                    <p>
+                    <p data-i18n="about.text.3">
                         <span class="accent">Доводим проект до идеала</span> на каждом этапе, потому что из <span
                             class="accent">отношения к мелочам строится репутация АРИТ</span>.
                     </p>
@@ -196,41 +214,41 @@
                 <div class="about__stats fade-in fade-in-delay-2">
                     <div class="stat-card">
                         <div class="stat-card__number" data-count="50">0<span>+</span></div>
-                        <div class="stat-card__label">Проектов</div>
+                        <div class="stat-card__label" data-i18n="about.stat.projects">Проектов</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-card__number" data-count="6">0</div>
-                        <div class="stat-card__label">Лет опыта</div>
+                        <div class="stat-card__label" data-i18n="about.stat.exp">Лет опыта</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-card__number">24/7</div>
-                        <div class="stat-card__label">Поддержка</div>
+                        <div class="stat-card__label" data-i18n="about.stat.support">Поддержка</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-card__number">100<span>%</span></div>
-                        <div class="stat-card__label">Фокус на результат</div>
+                        <div class="stat-card__label" data-i18n="about.stat.focus">Фокус на результат</div>
                     </div>
                 </div>
             </div>
 
             <div class="about__mission fade-in">
                 <div class="about__mission-item">
-                    <h3 class="about__mission-title">Видение</h3>
-                    <p class="about__mission-text">
+                    <h3 class="about__mission-title" data-i18n="about.vision.title">Видение</h3>
+                    <p class="about__mission-text" data-i18n="about.vision.text">
                         Мнение клиента — фундамент проекта. Уважаем видение заказчика и дополняем его своей
                         экспертизой,
                         сохраняя суть его идеи. Надежность и качество складываются из мелочей.
                     </p>
                 </div>
                 <div class="about__mission-item">
-                    <h3 class="about__mission-title">Цель</h3>
-                    <p class="about__mission-text">
+                    <h3 class="about__mission-title" data-i18n="about.goal.title">Цель</h3>
+                    <p class="about__mission-text" data-i18n="about.goal.text">
                         В течение следующих 5 лет хотим стать одной из лидирующих компаний России в сфере IT
                     </p>
                 </div>
                 <div class="about__mission-item">
-                    <h3 class="about__mission-title">Миссия</h3>
-                    <p class="about__mission-text">
+                    <h3 class="about__mission-title" data-i18n="about.mission.title">Миссия</h3>
+                    <p class="about__mission-text" data-i18n="about.mission.text">
                         Сэкономить ваше время путем автоматизации рутинных задач в вашем бизнесе
                     </p>
                 </div>
@@ -242,14 +260,15 @@
     <section class="process" id="process">
         <div class="container">
             <div class="section-heading fade-in">
-                <h2 class="section-heading__title">Четыре шага от идеи до запуска</h2>
+                <h2 class="section-heading__title" data-i18n="process.title">Четыре шага от идеи до запуска</h2>
             </div>
 
             <div class="process__timeline fade-in" id="processTimeline">
                 <div class="process__step" data-step="0">
                     <div class="process__step-number">01</div>
-                    <h3 class="process__step-title">Брифинг</h3>
-                    <p class="process__step-desc">Обсуждаем задачу <br>и формируем ТЗ</p>
+                    <h3 class="process__step-title" data-i18n="process.step.1.title">Брифинг</h3>
+                    <p class="process__step-desc" data-i18n="process.step.1.desc">Обсуждаем задачу <br>и формируем ТЗ
+                    </p>
                 </div>
                 <div class="process__connector" data-connector="0">
                     <span class="dash"></span>
@@ -263,8 +282,9 @@
                 </div>
                 <div class="process__step" data-step="1">
                     <div class="process__step-number">02</div>
-                    <h3 class="process__step-title">Дизайн</h3>
-                    <p class="process__step-desc">Создаём прототипы <br>и согласуем экраны</p>
+                    <h3 class="process__step-title" data-i18n="process.step.2.title">Дизайн</h3>
+                    <p class="process__step-desc" data-i18n="process.step.2.desc">Создаём прототипы <br>и согласуем
+                        экраны</p>
                 </div>
                 <div class="process__connector" data-connector="1">
                     <span class="dash"></span>
@@ -278,8 +298,9 @@
                 </div>
                 <div class="process__step" data-step="2">
                     <div class="process__step-number">03</div>
-                    <h3 class="process__step-title">Разработка</h3>
-                    <p class="process__step-desc">Пишем код <br>и тестируем функционал</p>
+                    <h3 class="process__step-title" data-i18n="process.step.3.title">Разработка</h3>
+                    <p class="process__step-desc" data-i18n="process.step.3.desc">Пишем код <br>и тестируем функционал
+                    </p>
                 </div>
                 <div class="process__connector" data-connector="2">
                     <span class="dash"></span>
@@ -293,8 +314,9 @@
                 </div>
                 <div class="process__step" data-step="3">
                     <div class="process__step-number">04</div>
-                    <h3 class="process__step-title">Запуск</h3>
-                    <p class="process__step-desc">Деплоим проект <br>и передаём доступы</p>
+                    <h3 class="process__step-title" data-i18n="process.step.4.title">Запуск</h3>
+                    <p class="process__step-desc" data-i18n="process.step.4.desc">Деплоим проект <br>и передаём доступы
+                    </p>
                 </div>
             </div>
     </section>
@@ -303,27 +325,28 @@
     <section class="contact" id="contact">
         <div class="container">
             <div class="contact__wrapper fade-in">
-                <h2 class="contact__title">Обсудим ваш проект?</h2>
-                <p class="contact__subtitle">Оставьте заявку — свяжемся в течение часа</p>
+                <h2 class="contact__title" data-i18n="contact.title">Обсудим ваш проект?</h2>
+                <p class="contact__subtitle" data-i18n="contact.subtitle">Оставьте заявку — свяжемся в течение часа</p>
 
                 <form class="contact__form" id="contactForm" autocomplete="off">
                     <div class="form-group">
-                        <label for="nameInput">Ваше имя</label>
-                        <input type="text" id="nameInput" placeholder="Как к вам обращаться?" required>
+                        <label for="nameInput" data-i18n="contact.form.name">Ваше имя</label>
+                        <input type="text" id="nameInput" placeholder="Как к вам обращаться?"
+                            data-i18n="contact.form.name.placeholder" required>
                     </div>
                     <div class="form-group">
-                        <label for="phoneInput">Телефон</label>
+                        <label for="phoneInput" data-i18n="contact.form.phone">Телефон</label>
                         <input type="tel" id="phoneInput" placeholder="+7 (___) ___-__-__" required>
                     </div>
                     <div class="form-group">
-                        <label for="messageInput">Кратко о проекте</label>
-                        <textarea id="messageInput"
-                            placeholder="Что хотите сделать? Примерный бюджет и сроки"></textarea>
+                        <label for="messageInput" data-i18n="contact.form.message">Кратко о проекте</label>
+                        <textarea id="messageInput" placeholder="Что хотите сделать? Примерный бюджет и сроки"
+                            data-i18n="contact.form.message.placeholder"></textarea>
                     </div>
-                    <button type="submit" class="btn-submit">Отправить заявку</button>
+                    <button type="submit" class="btn-submit" data-i18n="contact.form.submit">Отправить заявку</button>
                 </form>
 
-                <p class="contact__privacy">
+                <p class="contact__privacy" data-i18n="contact.privacy">
                     Нажимая кнопку, вы соглашаетесь с <a href="Политика обработки персональных данных.pdf"
                         target="_blank">политикой конфиденциальности</a>
                 </p>
@@ -335,13 +358,13 @@
     <section class="faq" id="faq">
         <div class="container">
             <div class="section-heading fade-in">
-                <h2 class="section-heading__title">Часто задаваемые вопросы</h2>
+                <h2 class="section-heading__title" data-i18n="faq.title">Часто задаваемые вопросы</h2>
             </div>
 
             <div class="faq__list fade-in">
                 <div class="faq__item">
                     <button class="faq__question" aria-expanded="false">
-                        <span>Сколько стоит разработка сайта?</span>
+                        <span data-i18n="faq.q.1">Сколько стоит разработка сайта?</span>
                         <span class="faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19" />
@@ -349,14 +372,15 @@
                             </svg></span>
                     </button>
                     <div class="faq__answer">
-                        <p class="faq__answer-inner">Стоимость зависит от сложности и объёма работ. Точную стоимость
+                        <p class="faq__answer-inner" data-i18n="faq.a.1">Стоимость зависит от сложности и объёма работ.
+                            Точную стоимость
                             рассчитаем после обсуждения вашего проекта.</p>
                     </div>
                 </div>
 
                 <div class="faq__item">
                     <button class="faq__question" aria-expanded="false">
-                        <span>Какие сроки разработки?</span>
+                        <span data-i18n="faq.q.2">Какие сроки разработки?</span>
                         <span class="faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19" />
@@ -364,7 +388,8 @@
                             </svg></span>
                     </button>
                     <div class="faq__answer">
-                        <p class="faq__answer-inner">Лендинг — 1–2 недели, корпоративный сайт — 3–5 недель,
+                        <p class="faq__answer-inner" data-i18n="faq.a.2">Лендинг — 1–2 недели, корпоративный сайт — 3–5
+                            недель,
                             веб-приложение — от 6 недель. Мы всегда обговариваем дедлайны заранее и придерживаемся их.
                         </p>
                     </div>
@@ -372,7 +397,7 @@
 
                 <div class="faq__item">
                     <button class="faq__question" aria-expanded="false">
-                        <span>Какие технологии вы используете?</span>
+                        <span data-i18n="faq.q.3">Какие технологии вы используете?</span>
                         <span class="faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19" />
@@ -380,7 +405,8 @@
                             </svg></span>
                     </button>
                     <div class="faq__answer">
-                        <p class="faq__answer-inner">Frontend: React, Vue.js, Next.js, TypeScript. Backend: Python,
+                        <p class="faq__answer-inner" data-i18n="faq.a.3">Frontend: React, Vue.js, Next.js, TypeScript.
+                            Backend: Python,
                             Django, FastAPI, Node.js. Базы данных: PostgreSQL, MongoDB. Также работаем с Telegram Bot
                             API, OpenAI API и облачными решениями.</p>
                     </div>
@@ -388,7 +414,7 @@
 
                 <div class="faq__item">
                     <button class="faq__question" aria-expanded="false">
-                        <span>Как происходит процесс работы?</span>
+                        <span data-i18n="faq.q.4">Как происходит процесс работы?</span>
                         <span class="faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19" />
@@ -396,7 +422,8 @@
                             </svg></span>
                     </button>
                     <div class="faq__answer">
-                        <p class="faq__answer-inner">Брифинг → дизайн → разработка → тестирование → запуск. На каждом
+                        <p class="faq__answer-inner" data-i18n="faq.a.4">Брифинг → дизайн → разработка → тестирование →
+                            запуск. На каждом
                             этапе вы видите прогресс и можете вносить правки. Общение в Telegram, демо-версия на
                             тестовом сервере.</p>
                     </div>
@@ -404,7 +431,7 @@
 
                 <div class="faq__item">
                     <button class="faq__question" aria-expanded="false">
-                        <span>Даёте ли гарантию на проект?</span>
+                        <span data-i18n="faq.q.5">Даёте ли гарантию на проект?</span>
                         <span class="faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19" />
@@ -412,14 +439,15 @@
                             </svg></span>
                     </button>
                     <div class="faq__answer">
-                        <p class="faq__answer-inner">Да, мы предоставляем 3 месяца бесплатной поддержки после запуска.
+                        <p class="faq__answer-inner" data-i18n="faq.a.5">Да, мы предоставляем 3 месяца бесплатной
+                            поддержки после запуска.
                             Исправляем баги, помогаем с мелкими доработками и консультируем по работе с сайтом.</p>
                     </div>
                 </div>
 
                 <div class="faq__item">
                     <button class="faq__question" aria-expanded="false">
-                        <span>Работаете ли с заказчиками из других городов?</span>
+                        <span data-i18n="faq.q.6">Работаете ли с заказчиками из других городов?</span>
                         <span class="faq__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <line x1="12" y1="5" x2="12" y2="19" />
@@ -427,7 +455,8 @@
                             </svg></span>
                     </button>
                     <div class="faq__answer">
-                        <p class="faq__answer-inner">Конечно! Мы работаем удалённо с клиентами по всей России и за
+                        <p class="faq__answer-inner" data-i18n="faq.a.6">Конечно! Мы работаем удалённо с клиентами по
+                            всей России и за
                             рубежом. Используем Telegram для оперативного общения и проводим видеозвонки по
                             необходимости.</p>
                     </div>
@@ -444,7 +473,8 @@
                     <div class="footer__logo">
                         <span class="footer__logo-name">АРИТ</span>
                     </div>
-                    <p class="footer__desc">Создаём цифровые продукты, которые помогают бизнесу расти. Веб-разработка,
+                    <p class="footer__desc" data-i18n="footer.desc">Создаём цифровые продукты, которые помогают бизнесу
+                        расти. Веб-разработка,
                         автоматизация и AI — всё в одной команде.</p>
                 </div>
 
@@ -463,7 +493,7 @@
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                             <circle cx="12" cy="10" r="3" />
                         </svg>
-                        <span>Казань, Россия</span>
+                        <span data-i18n="footer.address">Казань, Россия</span>
                     </div>
                     <div class="footer__contact-item">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
@@ -479,23 +509,27 @@
             <div class="footer__bottom">
                 <div class="footer__bottom-row">
                     <div class="footer__legal-container">
-                        <span class="footer__legal-text legal-ip">ИП МИНГАЗОВА РИММА МАРАТОВНА</span>
+                        <span class="footer__legal-text legal-ip" data-i18n="footer.legal.ip">ИП МИНГАЗОВА РИММА
+                            МАРАТОВНА</span>
                         <a href="Политика обработки персональных данных.pdf" target="_blank"
-                            class="footer__legal-link legal-policy">Политика конфиденциальности</a>
-                        <span class="footer__legal-text legal-inn">ИНН 165004408714</span>
+                            class="footer__legal-link legal-policy" data-i18n="footer.legal.policy">Политика
+                            конфиденциальности</a>
+                        <span class="footer__legal-text legal-inn" data-i18n="footer.legal.inn">ИНН 165004408714</span>
                         <a href="Пользовательское соглашение.pdf" target="_blank"
-                            class="footer__legal-link legal-agreement">Пользовательское соглашение</a>
+                            class="footer__legal-link legal-agreement"
+                            data-i18n="footer.legal.agreement">Пользовательское соглашение</a>
                     </div>
                 </div>
 
                 <div class="footer__copy-wrapper" style="text-align: center; margin-top: 24px;">
-                    <span class="footer__copy">© 2026 АРИТ. Все права защищены.</span>
+                    <span class="footer__copy" data-i18n="footer.copy">© 2026 АРИТ. Все права защищены.</span>
                 </div>
             </div>
         </div>
     </footer>
 
     <script src="config.js"></script>
+    <script src="translations.js"></script>
     <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="parallax3d.js"></script>

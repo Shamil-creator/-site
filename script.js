@@ -378,4 +378,58 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.matchMedia('(hover: none)').matches) {
     document.body.classList.add('no-hover');
   }
+
+  // ============================================
+  // Language Switching
+  // ============================================
+  const langToggle = document.getElementById('langToggle');
+  const mobileLangToggle = document.getElementById('mobileLangToggle');
+  const currentLang = localStorage.getItem('arit_lang') || 'ru';
+
+  function setLanguage(lang) {
+    if (!translations[lang]) return;
+
+    // Update document language
+    document.documentElement.lang = lang;
+    localStorage.setItem('arit_lang', lang);
+
+    // Update all translatable elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      const translation = translations[lang][key];
+
+      if (translation) {
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          el.placeholder = translation;
+        } else {
+          el.innerHTML = translation;
+        }
+      }
+    });
+
+    // Update buttons state
+    const nextLang = lang === 'ru' ? 'EN' : 'RU';
+    if (langToggle) langToggle.textContent = nextLang;
+    if (mobileLangToggle) mobileLangToggle.textContent = nextLang;
+  }
+
+  // Init language
+  setLanguage(currentLang);
+
+  // Event Listeners
+  if (langToggle) {
+    langToggle.addEventListener('click', () => {
+      const current = localStorage.getItem('arit_lang') || 'ru';
+      const next = current === 'ru' ? 'en' : 'ru';
+      setLanguage(next);
+    });
+  }
+
+  if (mobileLangToggle) {
+    mobileLangToggle.addEventListener('click', () => {
+      const current = localStorage.getItem('arit_lang') || 'ru';
+      const next = current === 'ru' ? 'en' : 'ru';
+      setLanguage(next);
+    });
+  }
 });
